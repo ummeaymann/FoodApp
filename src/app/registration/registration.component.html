@@ -1,0 +1,50 @@
+<div class="container">
+    <h3>Registration from</h3>
+     <form #regForm="ngForm" (ngSubmit)="regUser(regForm)">
+     <div class="form-group">
+        <input type="text" 
+        class="form-control"
+        ngModel
+        id="name"
+        name="name"
+        #name="ngModel"
+        placeholder="Enter the name"
+        >
+     </div>
+     <div class="form-group">
+        <input type="email" 
+        class="form-control"
+        ngModel
+        id="email"
+        name="email"
+        #email="ngModel"
+        placeholder="Enter the email"
+        >
+     </div>
+     <div class="form-group">
+        <input type="password" 
+        class="form-control"
+        ngModel
+        id="pwd"
+        name="pwd"
+        #pwd="ngModel"
+        placeholder="Enter the password"
+        >
+     </div>
+     <div class="form-group">
+        <input type="role" 
+        class="form-control"
+        ngModel
+        id="role"
+        name="role"
+        #role="ngModel"
+        placeholder="Enter the role"
+        >
+     </div>
+    
+     <button class="btn btn-primary" type="submit">Submit</button>
+    
+    </form>
+    
+    </div>
+    

@@ -1,0 +1,29 @@
+<div class="container">
+    <h3>Order Details</h3>
+  
+
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Customer Email</th>
+            <th scope="col">Customer Phone</th>
+            <th scope="col">Status</th>
+            <th scope="col">Price</th>
+
+            <th scope="col">Staff Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let f of result.data|search: searchOrder">
+            <th scope="row">{{f.id}}</th>
+            <td>{{f.customerName}}</td>
+            <td>{{f.contactNumber}}</td>
+            <td>{{f.status}}</td>
+            <td>{{f.totalPrice}}</td>
+            <td>{{f.user.name}}</td>
+          </tr>
+          
+        </tbody>
+      </table>
+</div>

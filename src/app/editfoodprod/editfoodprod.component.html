@@ -1,0 +1,81 @@
+<div class="container">
+<h3>Edit Food</h3>
+<form #editproduct="ngForm" (ngSubmit)="editprod(editproduct)">
+  
+    <div class="form-group">
+      <input type="text" 
+      class="form-control" 
+      ngModel
+      id="id"
+      name="id"
+      #id="ngModel"
+      [(ngModel)]="selsectedprod.id"
+   
+      >
+    </div>
+    <div class="form-group">
+      <input type="text" 
+      class="form-control" 
+      ngModel
+      id="name"
+      name="name"
+      #name="ngModel"
+      [(ngModel)]="selsectedprod.name"
+      >
+    </div>
+
+      <div class="form-group">
+        <input type="text" 
+        class="form-control" 
+        ngModel
+        id="about"
+        name="about"
+        #about="ngModel"
+        [(ngModel)]="selsectedprod.about"
+        >
+     
+    </div>
+    <div class="form-group">
+        <input type="text" 
+        class="form-control" 
+        ngModel
+        id="availability"
+        name="availability"
+        #availability="ngModel"
+        [(ngModel)]="selsectedprod.availability"
+        >
+      </div>
+     
+      <div class="form-group">
+        <input type="number" 
+        class="form-control" 
+        ngModel
+        id="price"
+        name="price"
+        #price="ngModel"
+        [(ngModel)]="selsectedprod.price"
+        >
+      </div>
+      <div class="form-group">
+        <input type="text" 
+        class="form-control" 
+        ngModel
+        id="type"
+        name="type"
+        #type="ngModel"
+        [(ngModel)]="selsectedprod.type"
+        >
+      </div>
+      <!-- <div class="form-group">
+        <input type="number" 
+        class="form-control" 
+        ngModel
+        id="menu_id"
+        name="menu_id"
+        #menu_id="ngModel"
+        [(ngModel)]="selsectedprod.menu_id"
+        >
+      </div> -->
+      <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

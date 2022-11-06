@@ -1,0 +1,46 @@
+<div class="container">
+   
+    <h3>Order Details</h3>
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Type</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+            <th scope="col">Remove Item</th>
+            
+            
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of items.data.item">
+          
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.type}}</td>
+           <td><input type="text" value={{item.quantity}} disabled min="0">
+            <button class="btn btn-primary" (click)="increment(item)">+</button> <button class="btn btn-secondary" (click)="decrement(item)">-</button>
+            </td>
+            <td>{{item.price}}</td>
+            <td><button class="btn btn-primary" type="button" (click)="deleteItem(item.id)">Remove</button></td>
+           
+          
+        
+            
+            
+          
+             
+          </tr>
+          <h3>Total price :{{items.data.totalPrice}}</h3>
+          
+        </tbody> 
+      </table>
+      <button  class="btn btn-primary"   routerLink="/customer">Generate Bill</button>
+
+      <Button  class="btn btn-secondary" (click)="deleteOrder()"> Delete Order</Button>
+      <!-- <button  class="btn btn-primary"   routerLink="/customer">Delete order</button> -->
+      
+</div>

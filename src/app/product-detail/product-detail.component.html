@@ -1,0 +1,73 @@
+<div class="container">
+   
+    <h3>Menu</h3>
+    <div class="row">
+    <div class="col-md-3">
+   <input class="form-control mr-sm-2" type="text" [(ngModel)]="searchProduct" placeholder="Search">
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4">Filtered by:{{searchProduct}}</div>
+  </div>
+    <!-- <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"  [(ngModel)]="searchProduct">
+      
+    </form> -->
+  
+    <br>
+    
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">name</th>
+            <th scope="col">about</th>
+            <th scope="col">type</th>
+            <th scope="col">availability</th>
+            <th scope="col">price</th>
+            <th scope="col" *ngIf="role=='manager'">Update</th>
+            <th scope="col" *ngIf="role=='manager'">Delete</th>
+            <th scope="col" *ngIf="role=='staff'">Quantity</th>
+            
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of products.data|search:searchProduct">
+          
+            <td>{{p.id}}</td>
+            <td>{{p.name}}</td>
+            <td>{{p.about}}</td>
+            <td>{{p.type}}</td>
+            <td>{{p.availability}}</td>
+            <td>{{p.price}}</td>
+            <td *ngIf="role=='manager'"><button class="btn btn-primary" type="button" [routerLink]="['/edit-product/',p.id]"  >Update </button></td>
+            <td  *ngIf="role=='manager'"><button class="btn btn-primary" type="button" (click)="deleteproduct(p.id)">Delete </button></td>
+            <!-- <td><input type="number"  ></td>
+            <td><button class="btn btn-primary" >Add item</button></td> -->
+
+            <span *ngIf="role=='staff'"  >
+            <td>
+            <form #loginForm="ngForm" (ngSubmit)="addItem(loginForm,p)">
+                <input type="number"  ngModel 
+                id="quantity"
+                name="quantity"
+                #quantity="ngModel">
+                <button type="submit"  class="btn btn-primary"  [disabled]="p.availability.toLowerCase()=='no'">{{loginForm.submitted?'Item Added':'Add item'}}</button>
+            </form>
+          </td>
+          <td>
+           
+            </td>
+        </span>
+            
+          
+            <!-- <td><Button type="button" [routerLink]="['/edit-product/',r._id]">Update</Button></td> -->
+          </tr>
+          
+        </tbody>
+      </table>
+      <button (click)="order()" class="btn btn-primary"  *ngIf="role=='staff'">Order</button>
+      <button class="btn btn-primary" type="button" [routerLink]="['/add-product']" *ngIf="role=='manager'">Add Product</button>
+      
+</div>
